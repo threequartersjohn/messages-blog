@@ -1,12 +1,13 @@
 body {
+  position: relative;
   background-color: black;
   font-family: Inconsolata, Arial;
   display: flex;
   flex-direction: column;
+  gap: 3rem;
 }
 
 .messageListContainer {
-  margin-top: 3rem;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -22,7 +23,7 @@ body {
 }
 
 .messageList {
-  width: min(50rem, 80vw);
+  width: min(20rem, 80vw);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -37,6 +38,22 @@ body {
   border-radius: 0.5rem;
   border: 0.09rem solid #323235;
   transition: border-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.gradient {
+  position: sticky;
+  width: 100%;
+  height: 5rem;
+}
+
+.gradient.top {
+  background: linear-gradient(black, transparent);
+  top: 0;
+}
+
+.gradient.bottom {
+  background: linear-gradient(transparent, black);
+  bottom: 0;
 }
 
 @media (hover: hover) {
