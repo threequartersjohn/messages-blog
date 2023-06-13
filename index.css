@@ -43,7 +43,7 @@ body {
 .gradient {
   position: sticky;
   width: 100%;
-  height: 5rem;
+  height: 1rem;
 }
 
 .gradient.top {
