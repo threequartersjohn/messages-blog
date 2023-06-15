@@ -2,27 +2,62 @@ body {
   position: relative;
   background-color: black;
   font-family: Inconsolata, Arial;
+}
+
+message-post {
+  margin: 0;
+  color: #cacaca;
+  padding: 0.7rem;
+  background-color: #15141a;
+  border-radius: 0.75rem;
+  border: 0.09rem solid #2b2b2f;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 
+    opacity 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+}
+
+message-post.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.blogContainer {
+  margin: 3rem 0;
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 3rem;
 }
 
-.messageListContainer {
+message-list {
+  position: relative;
   display: flex;
-  flex-direction: row;
-  align-items: flex-end;
+  flex-direction: row-reverse;
+  align-items: flex-start;
   justify-content: center;
   gap: 0.5rem;
 }
 
-.messageListContainer img {
-  height: 25px;
-  width: 25px;
-  border-radius: 50%;
-  margin-bottom: 0.2rem;
+message-list span {
+  position: sticky;
+  top: 0.6rem;
+  opacity: 0;
+  transform: translateY(10px);
+  margin-top: 0.6rem;
+  font-size: 1.5rem;
+  transition: 
+    opacity 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
 }
 
-.messageList {
+message-list .container.visible + span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+message-list .container {
   width: min(20rem, 80vw);
   display: flex;
   flex-direction: column;
@@ -30,34 +65,8 @@ body {
   gap: 0.5rem;
 }
 
-.messagePost {
-  margin: 0;
-  color: white;
-  padding: 0.7rem;
-  background-color: #15141a;
-  border-radius: 0.5rem;
-  border: 0.09rem solid #323235;
-  transition: border-color 0.3s ease-in-out, transform 0.2s ease-in-out;
-}
-
-.gradient {
-  position: sticky;
-  width: 100%;
-  height: 1rem;
-}
-
-.gradient.top {
-  background: linear-gradient(black, transparent);
-  top: 0;
-}
-
-.gradient.bottom {
-  background: linear-gradient(transparent, black);
-  bottom: 0;
-}
-
 @media (hover: hover) {
-  .messagePost:hover {
+  message-post:hover {
     transform: translateX(5px);
   }
 }

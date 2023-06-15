@@ -1,0 +1,92 @@
+/* normalize line height and webkit orientation changes in line height */
+html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  /* remove body margin  */
+  body {
+    margin: 0;
+  }
+  
+  /* render main correctly in IE */
+  main {
+    display: block;
+  }
+  
+  /* fix h1 margin and font size properties removing irregular changes in section/article parents  */
+  h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+  }
+  
+  /* remove anchor backgrounds in IE */
+  a {
+    background-color: transparent;
+  }
+  
+  /* remove image borders in IE */
+  img {
+    border-style: none;
+  }
+  
+  /* remove unwanted padding and margins */
+  div,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* normalize images as blocks */
+  img {
+    display: block;
+  }
+  
+  /*  normalize font and remove margins in all browsers */
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+  }
+  
+       
+  /* normalize styles of clickables in safari  */
+  button,
+  [type='button'],
+  [type='reset'],
+  [type='submit'] {
+    -webkit-appearance: button;
+  }
+  
+  /* remove paddings and border in firefox */
+  button::-moz-focus-inner,
+  [type='button']::-moz-focus-inner,
+  [type='reset']::-moz-focus-inner,
+  [type='submit']::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+  }
+  
+  button:-moz-focusring,
+  [type='button']:-moz-focusring,
+  [type='reset']:-moz-focusring,
+  [type='submit']:-moz-focusring {
+    outline: 1px dotted ButtonText;
+  }
+  
+  /* normalize anchor stylings */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
