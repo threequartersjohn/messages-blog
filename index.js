@@ -6,20 +6,24 @@ class MessagePost extends HTMLElement {
       const actualObserver = observers[0];
 
       if (actualObserver.isIntersecting) {
-        this.classList.add('visible');
+        if (!this.classList.contains('visible')) {
+          this.classList.add('visible');
+        }
 
         if (this.parentElement &&  !this.parentElement.classList.contains('visible')) {
           this.parentElement.classList.add('visible')
         }
       } else {
-        this.classList.remove('visible');
+        if (this.classList.contains('visible')) {
+          this.classList.remove('visible');
+        }
 
         if (
             this.parentElement && !this.nextElementSibling && actualObserver.boundingClientRect.bottom < window.innerHeight) {
           this.parentElement.classList.remove('visible');
         }
       }
-    }, { threshold: 1.0})
+    }, { threshold: 1})
 
     observer.observe(this);
   }
