@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "Inconsolata";
+  src: local("./public/inconsolata-variable.ttf") format("ttf");
+}
+
+
 body {
   position: relative;
   background-color: black;
