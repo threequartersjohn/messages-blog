@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Inconsolata";
-  src: local("./public/inconsolata-variable.ttf") format("ttf");
+  src: url("./public/inconsolata-variable.ttf");
 }
 
 
