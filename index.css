@@ -4,7 +4,7 @@ body {
   font-family: Inconsolata, Arial;
 }
 
-message-post {
+.messagePost {
   margin: 0;
   color: #cacaca;
   padding: 0.7rem;
@@ -12,15 +12,34 @@ message-post {
   border-radius: 0.75rem;
   border: 0.09rem solid #2b2b2f;
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateX(-10px);
   transition: 
     opacity 0.3s ease-in-out,
     transform 0.3s ease-in-out;
 }
 
-message-post.visible {
+.messageVideo,
+.messageImage {
+  margin: 0;
+  border-radius: 0.75rem;
+  overflow: clip;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: 
+    opacity 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+}
+
+.messageVideo video,
+.messageVideo source {
+  max-width: 100%;
+}
+
+.messageImage.visible,
+.messagePost.visible, 
+.messageVideo.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
 }
 
 .blogContainer {
@@ -31,7 +50,7 @@ message-post.visible {
   gap: 3rem;
 }
 
-message-list {
+.messageListContainer {
   padding: 0 min(1rem, 30vh);
   position: relative;
   display: flex;
@@ -41,11 +60,11 @@ message-list {
   gap: 0.5rem;
 }
 
-message-list span {
+.messageListContainer span {
   position: sticky;
   top: 0.6rem;
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateX(-10px);
   margin-top: 0.6rem;
   font-size: 1.5rem;
   transition: 
@@ -53,12 +72,12 @@ message-list span {
     transform 0.3s ease-in-out;
 }
 
-message-list .container.visible + span {
+.messageListContainer .container.visible + span {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
 }
 
-message-list .container {
+.messageListContainer .container {
   width: 20rem;
   margin-right: 0.5rem;
   display: flex;
@@ -68,7 +87,8 @@ message-list .container {
 }
 
 @media (hover: hover) {
-  message-post:hover {
+  .messageImage:hover,
+  .messagePost:hover {
     transform: translateX(5px);
   }
 }
