@@ -1,62 +1,78 @@
 @font-face {
   font-family: "Inconsolata";
-  src: url("./public/inconsolata-variable.ttf");
+  src: local("Inconsolata") url("./public/inconsolata.ttf");
+}
+
+@font-face {
+  font-family: "Lora";
+  src: local("Lora") url("./public/lora-italic.ttf");
 }
 
 
 body {
   position: relative;
   background-color: black;
+  color: white;
+  padding: 0;
+}
+
+.blogPost,
+.helpButton,
+.helpDialog {
   font-family: Inconsolata, Arial;
 }
 
-.messagePost {
-  margin: 0;
+.blogPost {
   color: #cacaca;
+  margin: 0;
   padding: 0.7rem;
   background-color: #15141a;
   border-radius: 0.75rem;
   border: 0.09rem solid #2b2b2f;
   opacity: 0;
+  filter: blur(3px);
   transform: translateX(-10px);
   transition: 
-    opacity 0.3s ease-in-out,
-    transform 0.3s ease-in-out;
+    opacity 0.4s ease-in-out,
+    transform 0.4s ease-in-out;
 }
 
-.messageVideo,
-.messageImage {
+.blogVideo,
+.blogImage {
   margin: 0;
   border-radius: 0.75rem;
   overflow: clip;
   opacity: 0;
+  filter: blur(3px);
   transform: translateX(-10px);
   transition: 
-    opacity 0.3s ease-in-out,
-    transform 0.3s ease-in-out;
+    opacity 0.4s ease-in-out,
+    transform 0.4s ease-in-out;
 }
 
-.messageVideo video,
-.messageVideo source {
+.blogVideo video,
+.blogVideo source {
   max-width: 100%;
 }
 
-.messageImage.visible,
-.messagePost.visible, 
-.messageVideo.visible {
+.blogImage.visible,
+.blogListContainer .container.visible + span ,
+.blogPost.visible, 
+.blogVideo.visible {
   opacity: 1;
+  filter: none;
   transform: translateX(0);
 }
 
 .blogContainer {
-  margin: 3rem 0;
+  padding: 3rem 0;
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 3rem;
 }
 
-.messageListContainer {
+.blogListContainer {
   padding: 0 min(1rem, 30vh);
   position: relative;
   display: flex;
@@ -66,24 +82,20 @@ body {
   gap: 0.5rem;
 }
 
-.messageListContainer span {
+.blogListContainer span {
   position: sticky;
   top: 0.6rem;
   opacity: 0;
+  filter: blur(3px);
   transform: translateX(-10px);
   margin-top: 0.6rem;
   font-size: 1.5rem;
   transition: 
-    opacity 0.3s ease-in-out,
-    transform 0.3s ease-in-out;
+    opacity 0.4s ease-in-out,
+    transform 0.4s ease-in-out;
 }
 
-.messageListContainer .container.visible + span {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.messageListContainer .container {
+.blogListContainer .container {
   width: 20rem;
   margin-right: 0.5rem;
   display: flex;
@@ -92,9 +104,72 @@ body {
   gap: 0.5rem;
 }
 
+.helpButton button {
+  cursor: pointer;
+  z-index: 1;
+  color: white;
+  background-color: #976e97;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  position: fixed;
+  border: none;
+  bottom: 1rem;
+  left: 1rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.helpDialog dialog {
+  border: none;
+  padding: 2.5rem;
+  border-radius: 0.5rem;
+}
+
+.helpDialog dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: grayscale(100%) blur(2px);
+}
+
+.helpDialog dialog .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.helpDialog .helpInfoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: max(15rem, 30vw);
+}
+
+.helpDialog .helpInfoContainer a {
+  text-decoration: underline;
+}
+
+.helpDialog dialog button {
+  margin-top: 1rem;
+  cursor: pointer;
+  color: white;
+  background-color: #976e97;
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0.5rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
 @media (hover: hover) {
-  .messageImage:hover,
-  .messagePost:hover {
+  .blogImage:hover,
+  .blogPost:hover {
     transform: translateX(5px);
   }
+
+  .helpButton button:hover,
+  .helpButton button:hover,
+  .helpDialog dialog button:hover,
+  .helpDialog dialog button:focus {
+    background-color: #8049b7;
+  }
+
+  
 }

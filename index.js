@@ -1,5 +1,5 @@
-class MessageVisibleObserver extends HTMLElement {
-  constructor(threshold = 1) {
+class WithVisibility extends HTMLElement {
+  constructor({threshold = 1, addToParent = true} = {}) {
     super();
 
     const observer = new IntersectionObserver((observers) => {
@@ -29,28 +29,28 @@ class MessageVisibleObserver extends HTMLElement {
   }
 }
 
-class MessagePost extends MessageVisibleObserver {
+class BlogPost extends WithVisibility {
   constructor() {
     super();
 
-    this.classList.add('messagePost')
+    this.classList.add('blogPost')
   }
 }
 
-class MessageImage extends MessageVisibleObserver {
+class BlogImage extends WithVisibility {
   constructor() {
-    super(0.1);
+    super({threshold: 0.2});
 
     ['src', 'alt'].map((attr) => {
       if (!this.hasAttribute(attr)) {
-        throw new Error(`<message-image> component requires '${attr}' attribute`);
+        throw new Error(`<blog-image> component requires '${attr}' attribute`);
       }
     })
 
     const description = this.getAttribute('alt');
     const source = this.getAttribute('src');
 
-    this.classList.add('messageImage');
+    this.classList.add('blogImage');
 
     this.innerHTML = `
     <a target="_blank" rel="noopener noreferrer" href="${source}"><img alt="${description}" src="${source}" /></a>
@@ -58,19 +58,19 @@ class MessageImage extends MessageVisibleObserver {
   }
 }
 
-class MessageVideo extends MessageVisibleObserver {
+class BlogVideo extends WithVisibility {
   constructor() {
-    super(0.1);
+    super({threshold: 0.2});
 
     ['src'].map((attr) => {
       if (!this.hasAttribute(attr)) {
-        throw new Error(`<message-image> component requires '${attr}' attribute`);
+        throw new Error(`<blog-image> component requires '${attr}' attribute`);
       }
     })
 
     const source = this.getAttribute('src');
 
-    this.classList.add('messageVideo');
+    this.classList.add('blogVideo');
 
     this.innerHTML = `
     <video playsinline controls preload="metadata">
@@ -81,23 +81,60 @@ class MessageVideo extends MessageVisibleObserver {
   }
 }
 
-class MessageList extends HTMLElement {
+class BlogList extends HTMLElement {
   constructor() {
     super();
 
-    this.classList.add('messageListContainer')
+    this.classList.add('blogListContainer')
 
     this.innerHTML = `
-      <div class="container">
+      <div class="container" aria-label="${this.getAttribute('emoji') ?? '🧑‍💻'}">
       ${this.innerHTML}
       </div>
       
-      <span>${this.getAttribute('emoji') ?? '🧑‍💻'}</span>
+      <span aria-hidden="true">${this.getAttribute('emoji') ?? '🧑‍💻'}</span>
     `;
   }
 }
 
-customElements.define("message-image", MessageImage);
-customElements.define("message-list", MessageList);
-customElements.define("message-post", MessagePost);
-customElements.define("message-video", MessageVideo);
+class HelpDialog extends HTMLElement {
+  constructor() {
+    super();
+
+    this.classList.add('helpDialog');
+
+    this.innerHTML = `
+    <dialog id="modal">
+      <div class="container">
+        ${this.innerHTML}
+        <form method="dialog">
+          <button type="submit">Close</button>
+        </form>
+      </div>
+    </dialog>
+    `
+  }
+}
+
+class HelpButton extends HTMLElement {
+  constructor() {
+    super();
+
+    this.classList.add('helpButton');
+
+    this.innerHTML = `<button>?</button>`;
+
+    this.firstChild.onclick = () => {
+      console.log('reached click');
+
+      document.getElementById('modal').showModal()
+    };
+  }
+}
+
+customElements.define("blog-image", BlogImage);
+customElements.define("blog-list", BlogList);
+customElements.define("blog-post", BlogPost);
+customElements.define("blog-video", BlogVideo);
+customElements.define("help-button", HelpButton);
+customElements.define("help-dialog", HelpDialog );

@@ -12,98 +12,119 @@
   </head>
 
   <body>
+    <help-button></help-button>
+
     <div class="blogContainer">
-      <message-list>
-        <message-post>
+      <blog-list>
+        <blog-post>
           This is my first post
-        </message-post>
+        </blog-post>
 
-        <message-post>
+        <blog-post>
           This is my second post!
-        </message-post>
+        </blog-post>
 
-        <message-post>
+        <blog-post>
           I have nothing else to say.
-        </message-post>
-      </message-list>
+        </blog-post>
+      </blog-list>
 
-      <message-list emoji="🥱">
-        <message-post>
-          To be honest work is a little boring right now.
-        </message-post>
-      </message-list>
+      <blog-list emoji="🥱">
+        <blog-post>
+          I haven't been sleeping very well. I need to rest more...
+        </blog-post>
+      </blog-list>
 
-      <message-list emoji="🫣">
-        <message-post>
+      <blog-list emoji="🫣">
+        <blog-post>
           Should i be worried if something happens to me?
-        </message-post>
+        </blog-post>
 
-        <message-post>
+        <blog-post>
           I've been doing some dangerous things lately!
-        </message-post>
+        </blog-post>
 
-        <message-post>
+        <blog-post>
           Like this web component business.
-        </message-post>
+        </blog-post>
 
-        <message-post>
+        <blog-post>
           It's criminal.
-        </message-post>
-      </message-list>
+        </blog-post>
+      </blog-list>
 
-      <message-list emoji="📚">
-        <message-post>
-          I think i'll try to make this a new project 🤔 I'm enjoying this! I
-          could add photos and videos and such.
-        </message-post>
-      </message-list>
+      <blog-list emoji="📚">
+        <blog-post>
+          Web components are very cool. Seems like it could take some years before they are well and nice across all browser providers though.
+        </blog-post>
 
-      <message-list emoji="📸">
-        <message-post>
+        <blog-post>
+          Hopefully we'll move beyond JS frameworks for smaller projects with kind of tech! 
+        </blog-post>
+      </blog-list>
+
+      <blog-list emoji="📸">
+        <blog-post>
           This is me testing an image.
-        </message-post>
+        </blog-post>
 
-        <message-image 
+        <blog-image 
           alt="A picture of myself taken by me. I'm holding a camera at waist level and taking a photo of myself in the mirror." 
           src="./public/selfie.jpeg" 
           />
-      </message-list>
+      </blog-list>
 
-      <message-list emoji="📽️">
-        <message-post>
+      <blog-list emoji="📽️">
+        <blog-post>
           This is me testing a video!
-        </message-post>
+        </blog-post>
 
-        <message-video src="./public/jp.mov"/>
-      </message-list>
+        <blog-video src="./public/jp.mov"/>
+      </blog-list>
 
-      <message-list emoji="📽️">
-        <message-post>
+      <blog-list emoji="📽️">
+        <blog-post>
           This is me testing an horizontal video.
-        </message-post>
+        </blog-post>
 
-        <message-video src="./public/horizontal.mov"/>
-      </message-list>
+        <blog-video src="./public/horizontal.mov"/>
+      </blog-list>
 
-      <message-list emoji="🧑‍🔬">
-        <message-post>
+      <blog-list emoji="🧑‍🔬">
+        <blog-post>
           This is me experimenting with very long posts.
-        </message-post>
+        </blog-post>
 
-        <message-post>
+        <blog-post>
           One time i was having a walk and i saw two birds. The birds were flying very low. It was a black bird and a red bird. I don't know their names but they were pretty birds.
-        </message-post>
+        </blog-post>
 
-        <message-post>
+        <blog-post>
           I work as a software developer and i have been doing so since 2019. That was before the pandemic. The pandemic was very strange, but i worked through the whole thing, since my work can be done remotely very easily.
-        </message-post>
+        </blog-post>
 
-        <message-post>
+        <blog-post>
           I'm trying out web components so that one day i'll be able to make websites that are big and complex but don't need any frameworks! But this only works for static websites i think... i would need things like state to make applications.
-        </message-post>
-      </message-list>
+        </blog-post>
+      </blog-list>
 
     </div>
+
+    <help-dialog>
+      <div class="helpInfoContainer">
+        <p>
+          Hey! My name is <a target="_blank" rel="noopener noreferrer" href="https://threequartersjohn.github.io/">João Silva</a> and this is a small project to experiment with web components.
+        </p>
+
+        <p>
+          I chose a blog structure because i was inspired by <a target="_blank" rel="noopener noreferrer" href="https://dzrgo.com">Dul Zorigoo's website</a> and wanted to try doing something similar.
+        </p>
+
+        <p>
+          ⚠️ This will probably not work very well in Safari. Safari's Intersection Observer behavior is non-standard and is causing some issues. 
+        </p>
+      </div>
+    </help-dialog>
 
     <script src="./index.js"></script>
   </body>
