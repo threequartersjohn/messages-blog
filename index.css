@@ -104,7 +104,7 @@ body {
   gap: 0.5rem;
 }
 
-.helpButton button {
+.helpButton {
   cursor: pointer;
   z-index: 1;
   color: white;
@@ -115,22 +115,22 @@ body {
   position: fixed;
   border: none;
   bottom: 1rem;
-  left: 1rem;
+  right: 1rem;
   transition: background-color 0.3s ease-in-out;
 }
 
-.helpDialog dialog {
+.helpDialog {
   border: none;
   padding: 2.5rem;
   border-radius: 0.5rem;
 }
 
-.helpDialog dialog::backdrop {
+.helpDialog::backdrop {
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: grayscale(100%) blur(2px);
 }
 
-.helpDialog dialog .container {
+.helpDialog .container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -147,7 +147,7 @@ body {
   text-decoration: underline;
 }
 
-.helpDialog dialog button {
+.helpDialog button {
   margin-top: 1rem;
   cursor: pointer;
   color: white;
@@ -164,10 +164,10 @@ body {
     transform: translateX(5px);
   }
 
-  .helpButton button:hover,
-  .helpButton button:hover,
-  .helpDialog dialog button:hover,
-  .helpDialog dialog button:focus {
+  .helpButton:hover,
+  .helpButton:hover,
+  .helpDialog button:hover,
+  .helpDialog button:focus {
     background-color: #8049b7;
   }
 
